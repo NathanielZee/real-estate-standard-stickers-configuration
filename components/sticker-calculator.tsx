@@ -77,9 +77,6 @@ export default function StickerCalculator() {
   const [selectedQuantity, setSelectedQuantity] = useState<number | null>(null)
   const [customQuantity, setCustomQuantity] = useState<number | null>(null)
   const [showCustomQuantity, setShowCustomQuantity] = useState(false)
-  const [selectedFinish, setSelectedFinish] = useState("")
-  const [isReorder, setIsReorder] = useState(false)
-  const [invoiceNumber, setInvoiceNumber] = useState("")
   const [artworkMethod, setArtworkMethod] = useState("")
   const [shippingMethod, setShippingMethod] = useState("13.95")
   const [uploadedImages, setUploadedImages] = useState<string[]>([])
@@ -503,75 +500,6 @@ export default function StickerCalculator() {
               >
                 ← Back
               </button>
-
-              <div>
-                <label htmlFor="finish" className="text-gray-700 font-medium text-xs sm:text-sm block mb-2">
-                  Finish
-                </label>
-                <select
-                  id="finish"
-                  value={selectedFinish}
-                  onChange={(e) => setSelectedFinish(e.target.value)}
-                  className="w-full p-2 sm:p-3 border border-gray-300 rounded-md text-gray-900 bg-white appearance-none text-sm sm:text-base"
-                  style={{
-                    backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' strokeLinecap='round' strokeLinejoin='round' strokeWidth='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
-                    backgroundPosition: "right 0.5rem center",
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "1.5em 1.5em",
-                  }}
-                >
-                  <option value="">-- Select --</option>
-                  <option value="super-ninja-glossy">
-                    Super Ninja Glossy - 100% weather resistant / dishwasher safe!
-                  </option>
-                  <option value="super-ninja-matte">
-                    Super Ninja Matte - 100% weather resistant / dishwasher safe!
-                  </option>
-                  <option value="clear-transparent">
-                    Clear Transparent - 100% weather resistant / dishwasher safe!
-                  </option>
-                </select>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  id="reorder"
-                  checked={isReorder}
-                  onChange={(e) => setIsReorder(e.target.checked)}
-                  className="w-4 h-4"
-                />
-                <label htmlFor="reorder" className="text-gray-700 font-medium text-xs sm:text-sm">
-                  Is this a reorder?
-                </label>
-              </div>
-
-              {isReorder && (
-                <div className="space-y-3">
-                  <div>
-                    <label htmlFor="invoice-number" className="text-gray-700 font-medium text-xs sm:text-sm block mb-2">
-                      Invoice Number
-                    </label>
-                    <input
-                      type="text"
-                      id="invoice-number"
-                      value={invoiceNumber}
-                      onChange={(e) => setInvoiceNumber(e.target.value)}
-                      placeholder="Enter your invoice number"
-                      className="w-full p-2 sm:p-3 border border-gray-300 rounded-md text-gray-900 text-sm sm:text-base"
-                    />
-                  </div>
-
-                  {invoiceNumber.trim() && (
-                    <button
-                      type="button"
-                      className="bg-blue-500 text-white px-3 sm:px-4 py-2 rounded-md hover:bg-blue-600 transition-colors text-xs sm:text-sm font-medium"
-                    >
-                      Skip proof
-                    </button>
-                  )}
-                </div>
-              )}
 
               <div>
                 <label className="text-gray-700 font-medium text-xs sm:text-sm block mb-3">
